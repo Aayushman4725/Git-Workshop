@@ -1,0 +1,34 @@
+git init - initializes git repo
+git status - it shows the condition/status of the repo
+git clone <repo_url> - to clone others project
+
+modified: Changes made but not yet staged
+staging: Changes added to the staging area
+Commited: Staged changes are committed to the repo
+
+git add <file_name> -- adding file in the staging area
+git rm --cached <file_name> -- removing file from staging area
+git commit -m "<any message>" -- commiting the file with a certain message
+
+
+***git configuration****
+git config --global user.email "<your email>"
+git config --global user.name"<username>"
+
+**for local**
+git config user.email "<your email>"
+git config user.name "<username>"
+
+**to check configuration**
+git config -l
+
+touch <file_name> -- creates a new file in the folder
+
+git restore --staged <file> -- to remove the added file(alternative to rm)
+
+git remote add origin <git url>
+git branch -M main -- creates a main branch if the local repo contains master branch
+
+git remote -v -- to check whether the github url is added or not
+git push -u origin main -- pushes the previously commited file in the remote repo
+
