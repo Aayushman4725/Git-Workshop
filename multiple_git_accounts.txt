@@ -1,0 +1,49 @@
+##Using multiple github account in one machine
+
+For ssh key generation:
+ssh-keygen -t ed25519 -C "your_email@example.com"
+
+Generate different key for different email i.e different github account
+Dont forget to change the names of the ssh keys.
+When you enter the above code it asks you where to show the ssh keys by default it stores in:
+ C:\Users\DELL/.ssh/id_ed25519
+
+just copy this path and add _username(you can use any name you like just make it unique because when you generate two different keys it will store in as same name by default which is:"id_ed25519") at the end:
+
+ C:\Users\DELL/.ssh/id_ed25519_username(or any other name)
+
+In my case, as my github username was 'longeval':
+C:\Users\DELL/.ssh/id_ed25519_longeval
+
+
+
+Inside the .ssh folder which will be inside Users/Username  (In my case Users/DELL)
+Open a code editor from the .ssh folder (for eg: vs code)
+
+Create a file called "config"
+
+Now inside the config file add this:
+
+Host longeval github.com
+    HostName github.com
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_ed25519_longeval
+
+Host aayushman4725 github.com
+    HostName github.com
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_ed25519_aayushman4725
+
+
+After the Host I have written longeval and aayushman.4725  for my two ssh keys of two different account which are just aliases/nickname(can be written anything) which we will need when cloning the repo.
+Now save the file.
+Now that we have configured our ssh keys, its time to test it out by cloning
+
+for that just go to the folder in which you have to clone and in the terminal type : git clone git@github.com:Nepal-College-of-Information-Technology/lab-works-Longeval.git
+
+Now in the above code after "git clone"
+there is git@github.com written there.
+
+Replace that with git@longeval (replace the github.com with the alias which we setup previously, in my case I cloned the repo from 
+the account whose username is longeval) so my code would be:
+git@longeval:Nepal-College-of-Information-Technology/lab-works-Longeval.git
